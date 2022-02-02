@@ -83,6 +83,7 @@ public class GeneralUtility {
     }
 
     public static void main(String[] args) {
-
+          createFilesForTollPlazas();
+          writeDataToFilesForTollPlazas();
     }
 }
