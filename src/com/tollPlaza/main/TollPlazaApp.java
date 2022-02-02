@@ -40,7 +40,7 @@ public class TollPlazaApp {
             System.out.print("Enter your option: ");
             String num = sc.nextLine();
             switch (num) {
-                case "1" -> {
+                case "1":
                     printAsteriskLine();
                     System.out.println("\t\t\t\t\t\t\t<----TOLL PLAZA LIST---->");
                     printDashLine();
@@ -52,8 +52,8 @@ public class TollPlazaApp {
                         System.out.println();
                     }
                     printDashLine();
-                }
-                case "2" -> {
+                    break;
+                case "2":
                     System.out.print("Enter the Name: ");
                     String name = sc.nextLine();
                     boolean nameFound = false;
@@ -64,7 +64,7 @@ public class TollPlazaApp {
                     }
                     if (nameFound) {
                         printAsteriskLine();
-                        System.out.println("Toll Plaza '"+name+"' is selected...");
+                        System.out.println("Toll Plaza '" + name + "' is selected...");
                         printAsteriskLine();
                         flagForChildLoop = true;
                         while (flagForChildLoop) {
@@ -76,7 +76,7 @@ public class TollPlazaApp {
                             System.out.print("Enter your option: ");
                             option = sc.nextLine();
                             switch (option) {
-                                case "P" -> {
+                                case "P":
                                     printAsteriskLine();
                                     int payedCars = 0;
                                     int amount = 0;
@@ -92,10 +92,11 @@ public class TollPlazaApp {
                                     }
                                     System.out.println("Added paying car");
                                     printAsteriskLine();
-                                }
-                                case "N" -> {
+                                    break;
+
+                                case "N":
                                     printAsteriskLine();
-                                    int notPayedCars=0;
+                                    int notPayedCars = 0;
                                     for (TollPlaza tollplaza : tollPlazaList) {
                                         if (tollplaza.getName().equals(name)) {
                                             notPayedCars = tollplaza.getNotPayingCar();
@@ -105,8 +106,8 @@ public class TollPlazaApp {
                                     }
                                     System.out.println("Added a non-paying car");
                                     printAsteriskLine();
-                                }
-                                case "R" -> {
+                                    break;
+                                case "R":
                                     printAsteriskLine();
                                     System.out.println("\t\t\t\t\t\t\t<----View Report---->");
                                     printDashLine();
@@ -121,9 +122,8 @@ public class TollPlazaApp {
                                     }
                                     printDashLine();
                                     printAsteriskLine();
-
-                                }
-                                case "T" -> {
+                                    break;
+                                case "T":
                                     printAsteriskLine();
                                     System.out.println("\t\t\t\t\t\t<----Complete Report---->");
                                     printDashLine();
@@ -145,30 +145,28 @@ public class TollPlazaApp {
                                     System.out.println();
                                     printDashLine();
                                     printAsteriskLine();
-                                }
-                                case "Z" -> {
+                                    break;
+                                case "Z":
                                     String selectedTollPlazaName = "";
                                     for (TollPlaza tollplaza : tollPlazaList) {
                                         if (tollplaza.getName().equals(name)) {
                                             selectedTollPlazaName = tollplaza.getName();
-                                            GeneralUtility.writeObjectToFile(tollplaza,tollplaza.getName());
+                                            GeneralUtility.writeObjectToFile(tollplaza, tollplaza.getName());
                                         }
                                     }
                                     printAsteriskLine();
-                                    System.out.println("Save to file on following path "+ AppConstants.appFolderPath+selectedTollPlazaName+".txt");
+                                    System.out.println("Save to file on following path " + AppConstants.appFolderPath + selectedTollPlazaName + ".txt");
                                     flagForChildLoop = false;
-                                }
-                                default -> {
+                                    break;
+                                default:
                                     System.out.println("Invalid input!!");
                                     printAsteriskLine();
-                                }
                             }
                         }
                     } else {
                         System.out.println("Toll Plaza '" + name + "' does not exist here!!!");
                     }
-                }
-                case "3" -> {
+                case "3":
 
                     System.out.print("Enter the ID: ");
                     String id = sc.nextLine();
@@ -183,7 +181,7 @@ public class TollPlazaApp {
 
                     if (idFound) {
                         printAsteriskLine();
-                        System.out.println("Toll Plaza '"+selectedTollPlazaName+"' is selected...");
+                        System.out.println("Toll Plaza '" + selectedTollPlazaName + "' is selected...");
                         printAsteriskLine();
                         flagForChildLoop = true;
                         while (flagForChildLoop) {
@@ -195,7 +193,7 @@ public class TollPlazaApp {
                             System.out.print("Enter your option: ");
                             option = sc.nextLine();
                             switch (option) {
-                                case "P" -> {
+                                case "P":
                                     printAsteriskLine();
                                     int payedCars = 0;
                                     int amount = 0;
@@ -211,10 +209,10 @@ public class TollPlazaApp {
                                     }
                                     System.out.println("Added paying car");
                                     printAsteriskLine();
-                                }
-                                case "N" -> {
+                                    break;
+                                case "N":
                                     printAsteriskLine();
-                                    int notPayedCars=0;
+                                    int notPayedCars = 0;
                                     for (TollPlaza tollplaza : tollPlazaList) {
                                         if (tollplaza.getId().equals(id)) {
                                             notPayedCars = tollplaza.getNotPayingCar();
@@ -224,8 +222,8 @@ public class TollPlazaApp {
                                     }
                                     System.out.println("Added a non-paying car");
                                     printAsteriskLine();
-                                }
-                                case "R" -> {
+                                    break;
+                                case "R":
                                     printAsteriskLine();
                                     System.out.println("\t\t\t\t\t\t\t<----View Report---->");
                                     printDashLine();
@@ -240,8 +238,8 @@ public class TollPlazaApp {
                                     }
                                     printDashLine();
                                     printAsteriskLine();
-                                }
-                                case "T" -> {
+                                    break;
+                                case "T":
                                     printAsteriskLine();
                                     System.out.println("\t\t\t\t\t\t<----Complete Report---->");
                                     printDashLine();
@@ -263,36 +261,34 @@ public class TollPlazaApp {
                                     System.out.println();
                                     printDashLine();
                                     printAsteriskLine();
-                                }
-                                case "Z" -> {
-
+                                    break;
+                                case "Z":
                                     for (TollPlaza tollplaza : tollPlazaList) {
                                         if (tollplaza.getId().equals(id)) {
                                             selectedTollPlazaName = tollplaza.getName();
-                                            GeneralUtility.writeObjectToFile(tollplaza,tollplaza.getName());
+                                            GeneralUtility.writeObjectToFile(tollplaza, tollplaza.getName());
                                         }
                                     }
                                     printAsteriskLine();
-                                    System.out.println("Save to file on following path "+ AppConstants.appFolderPath+selectedTollPlazaName+".txt");
+                                    System.out.println("Save to file on following path " + AppConstants.appFolderPath + selectedTollPlazaName + ".txt");
                                     flagForChildLoop = false;
-                                }
-                                default -> {
+                                    break;
+                                default:
                                     System.out.println("Invalid input!!");
                                     printAsteriskLine();
-                                }
                             }
                         }
                     } else {
                         System.out.println("Toll Plaza '" + id + "' does not exist here!!!");
                     }
-                }
-                case "4" -> {
+                case "4":
                     printAsteriskLine();
                     System.out.println("Thank you. Good Bye!");
                     printAsteriskLine();
                     flagForParentLoop = false;
-                }
-                default -> System.out.println("Invalid input!!");
+                    break;
+                default:
+                    System.out.println("Invalid input!!");
             }
         }
     }
